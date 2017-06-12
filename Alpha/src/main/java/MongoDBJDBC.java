@@ -1,3 +1,4 @@
+import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.WriteConcern;
@@ -35,11 +36,21 @@ public class MongoDBJDBC{
         	}
          
          DBCollection table = db.getCollection("user");
-         BasicDBObject document = new BasicDBObject();
-         document.put("name", "mkyong");
-         document.put("age", 30);
-         document.put("createdDate", new Date());
-         table.insert(document);
+         
+         BasicDBObjectBuilder documentBuilder = BasicDBObjectBuilder.start()
+     	.add("database", "mkyongDB")
+     	.add("table", "hosting");
+
+     BasicDBObjectBuilder documentBuilderDetail = BasicDBObjectBuilder.start()
+     .add("records", 99)
+     .add("index", "vps_index1")
+     .add("active", "true");
+
+     documentBuilder.add("detail", documentBuilderDetail.get());
+
+     table.insert(documentBuilder.get());
+         
+         
       }catch(Exception e){
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       }
