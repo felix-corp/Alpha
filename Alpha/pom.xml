@@ -3,4 +3,12 @@
   <groupId>com.evan.yan</groupId>
   <artifactId>Alpha</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+	<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+	<dependencies>
+		<dependency>
+		    <groupId>org.mongodb</groupId>
+		    <artifactId>mongo-java-driver</artifactId>
+		    <version>3.4.2</version>
+		</dependency>
+	</dependencies>
 </project>
