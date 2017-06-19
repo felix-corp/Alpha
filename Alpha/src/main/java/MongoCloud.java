@@ -14,7 +14,9 @@ import com.mongodb.client.MongoDatabase;
 
 import java.util.*;
 
-public class HelloWorld {
+public class MongoCloud {
+	
+	//MongoCloud: https://cloud.mongodb.com/v2/5942ac1bc0c6e31e2daa7552#clusters
 	
 	public static void main(String[] args){
 		System.out.println("HelloWorld");
@@ -26,3 +28,6 @@ public class HelloWorld {
 		System.out.println(database.getName());
 	}
 }
+
+
+
