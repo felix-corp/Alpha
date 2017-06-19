@@ -10,9 +10,12 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.DBCursor;
 import com.mongodb.ServerAddress;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 import java.util.*;
+
+import org.bson.Document;
 
 public class MongoCloud {
 	
@@ -26,6 +29,17 @@ public class MongoCloud {
 		MongoDatabase database = mongoClient.getDatabase("test");
 		
 		System.out.println(database.getName());
+		
+		MongoCollection<Document> table = database.getCollection("user");
+		
+		Document document = new Document();
+		document.put("name", "mkyong");
+		document.put("age", 30);
+		document.put("createdDate", new Date());
+
+		table.insertOne(document);
+		
+		//System.out.println(table.find());
 	}
 }
 
